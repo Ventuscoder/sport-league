@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add a game</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Sports League using NodeJS</h1>
+    <div>
+      <h2><a href="/">Home</a></h2>
+      <h2><a href="/teams">Teams</a></h2>
+      <h2><a href="/match">Add a game</a></h2>
+      <h2><a href="/new">Add a new team</a></h2>
+    </div>
+    <div>
+      <form action="/add-match" method="post">
+        <input type="text" placeholder="Winning Team" name="winteam">
+        <br>
+        <input type="text" placeholder="Losing Team" name="lossteam">
+        <br>
+        <input type="submit" value="Add game">
+      </form>
+    </div>
+  </body>
+</html>
