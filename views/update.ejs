@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sports League</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Sports League using NodeJS</h1>
+    <div>
+      <h2><a href="/">Home</a></h2>
+      <h2><a href="/teams">Teams</a></h2>
+      <h2><a href="/match">Add a match</a></h2>
+      <h2><a href="/new">Add a new team</a></h2>
+    </div>
+    <% data.forEach(details => { %>
+      <% if (details._id==idupdate) { %>
+    <div>
+      <form action="/update/<%= team._id %>" method="post">
+        <input type="text" placeholder="Team Name" name="name" value="<%= team.name %>">
+        <br>
+        <input type="text" placeholder="Number of Players" name="players" value="<%= team.players %>">
+        <br>
+        <p>Number of wins: <%= team.wins %></p>
+        <br>
+        <p>Number of losses: <%= team.losses %></p>
+        <br>
+        <input type="submit" value="Update team">
+        <br>
+        <a href="/delete/<%= team._id %>">Delete Team</a>
+        <br>
+        <a href="/teams">Cancel Changes</a>
+      </form>
+    </div>
+    <% } %>
+    <% }) %>
+  </body>
+</html>

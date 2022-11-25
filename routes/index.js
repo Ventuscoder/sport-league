@@ -64,4 +64,34 @@ router.post('/new-team', function(req, res, next) {
   });
 });
 
+router.get('/update/:id', function(req, res, next) {
+  teams.find({}, function(err, data){
+    res.render('update', {data: data, idupdate: req.params.id});
+  });
+})
+
+router.post('/update/:id', function(req, res, next) {
+  teams.findOne({_id: req.params.id}, function(err, team) {
+    team.name = req.body.name;
+    team.players = req.body.players;
+    team.save(function(err){
+      if (err) {
+        return err;
+      }
+      res.redirect('/teams')
+    });
+  });
+});
+
+router.get('/delete/:id', function(req, res, next) {
+  teams.findByIdAndRemove(req.params.id, err => {
+    if (err) {
+      res.send('Error Occured');
+      console.log(err);
+    } else {
+      res.redirect('/teams');
+    }
+  })
+});
+
 module.exports = router;

@@ -22,7 +22,7 @@
         </tr>
         <% teams.forEach(team => { %>
         <tr>
-          <td><%= team.name %></td>
+          <td><a href="/update/:<%= team._id %>"><%= team.name %></a></td>
           <td><%= team.players %></td>
           <td><%= team.wins %></td>
           <td><%= team.losses %></td>
